@@ -1,0 +1,1 @@
+SELECT * FROM ABILITY where ability= /* ability */''

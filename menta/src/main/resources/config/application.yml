@@ -1,0 +1,32 @@
+spring:
+
+#  profiles:
+#    active: dev
+
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+    thymeleaf:
+      cache: false
+
+  messages:
+    basename: i18n/messages
+    cache-seconds: 0
+    encoding: UTF-8
+
+  datasource:
+    test:
+      jdbcUrl: jdbc:log4jdbc:postgresql://localhost:5432/mydb?stringtype=unspecified
+      username: postgres
+      password: postgres
+      driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+      connection-test-query: SELECT 1
+      auto-commit: false
+
+logging:
+  config: classpath:config/logback-spring.xml
+
+  #local.japan: "japan"
+

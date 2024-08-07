@@ -1,0 +1,46 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.7'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id 'org.seasar.doma.compile' version '1.1.0'
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+}
+
+group = 'com.app'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+
+processResources.destinationDir = compileJava.destinationDir
+compileJava.dependsOn processResources
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+	domaGenRuntime
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	compileOnly 'com.google.apis:google-api-services-youtube:v3-rev121-1.19.0'
+	implementation group: 'org.json', name: 'json', version: '20090211'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
+	implementation 'org.seasar.doma.boot:doma-spring-boot-starter:1.6.0'
+	annotationProcessor 'org.seasar.doma:doma-processor:2.50.0'
+	implementation('org.postgresql:postgresql')
+	domaGenRuntime 'org.seasar.doma:doma-gen:2.11.0'
+
+
+}

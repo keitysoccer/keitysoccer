@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="jp" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>チャート図</title>
+  <link rel="stylesheet" th:href="@{/view.css}" type="text/css">
+  <script type="text/javascript" th:src="@{/register.js}"></script>
+
+</head>
+<body>
+
+  <div class="delete-button">
+    <a th:href="@{'/home/' + ${title}}"><img th:src="@{/deleteicon.png}" alt="削除ボタン"></a>
+  </div>
+
+  <div class="bulue-sheet">
+    <div class="nametitle">
+        <p th:text="${title}"></p>
+      </div>
+    </div>
+
+  <form th:action="@{/home}" method="post"  th:object="${request}">
+  <div class ="containerbox">
+    <div th:each="element, idx : *{elements}">
+      <div class ="container">
+        <input type="hidden" th:field="*{elements[__${idx.index}__].prntRowNumber}">
+        <div th:each="data, rowIdx : ${element.dataList}">
+          <input type="hidden" class="grid-item" th:field="*{elements[__${idx.index}__].dataList[__${rowIdx.index}__].rowNumber}" >
+          <div th:if="${element.prntRowNumber} != 5 and ${data.rowNumber} != 5">
+            <input type="text" th:id="'item' + ${element.prntRowNumber} + ${data.rowNumber}" class="grid-item" th:field="*{elements[__${idx.index}__].dataList[__${rowIdx.index}__].inputValue}" >
+          </div>
+          <div th:if="(${element.prntRowNumber} != 5 and ${data.rowNumber} == 5) or (${element.prntRowNumber} == 5 and ${data.rowNumber} != 5)">
+            <input type="text" th:id="'item' + ${element.prntRowNumber} + ${data.rowNumber}" class="grid-item" th:field="*{elements[__${idx.index}__].dataList[__${rowIdx.index}__].inputValue}" style="background-color:blue;">
+          </div>
+          <div th:if="${element.prntRowNumber} == 5 and ${data.rowNumber} == 5">
+            <input type="text" th:id="'item' + ${element.prntRowNumber} + ${data.rowNumber}" class="grid-item" th:field="*{elements[__${idx.index}__].dataList[__${rowIdx.index}__].inputValue}" style="background-color:yellow;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="update-button">
+      <button type="submit">更新</button>
+    </div>
+  </div>
+</form>
+</body>
+</html>

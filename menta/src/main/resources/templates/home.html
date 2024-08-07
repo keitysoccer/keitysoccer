@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="jp" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>目標達成シート</title>
+    <link rel="stylesheet" th:href="@{/bootstrap.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/view.css}" type="text/css">
+    <script type="text/javascript" th:src="@{/jquery-3.6.4.min.js}"></script>
+</head>
+
+<body>
+<div class="bulue-sheet">
+    <h1>マンダラート</h1>
+<form th:action="@{/home}" method="post">
+    <div id="search">
+    <input type="text" name="searchName">
+    </div>
+</form>
+</div>
+
+<div class="results-name">
+    <div th:each="resulty : ${resultys}">
+
+        <a th:href="@{'/register/' + ${resulty.id}}" th:text="${resulty.results}"></a>
+
+    </div>
+</div>
+
+<div class="shinki-button">
+    <a th:href="@{/register}"><img th:src="@{/shinki.png}" alt="新規作成ボタン"></a>
+</div>
+</body>
+</html>

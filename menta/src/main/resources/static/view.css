@@ -1,0 +1,68 @@
+body{
+  background-color: #f6fffa;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bulue-sheet{
+  background: #0a53be;
+  width:1500px;
+  padding: 1px;
+  color: white;
+  font-family: sans-serif;
+  height: 54px;
+}
+.nametitle{
+margin-left:32px;
+}
+h1{
+  color: white;
+  font-size: 17px;
+  padding-top: 18px;
+  margin-left: 17px;
+}
+
+#search{
+margin-left: 133px;
+margin-top: -33px;
+}
+
+.shinki-button{
+  position: absolute;
+  right: 65px;
+  bottom: 35px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+}
+
+.grid-item {
+  border: 1px solid black;
+  text-align: center;
+  padding: 10px;
+}
+
+.container input{
+  width: 100px;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.containerbox {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  margin-left: 240px;
+  margin-top:106px;
+}
+
+.delete-button {
+    margin-bottom: -53px;
+    margin-left: 1200px;
+}
+
+.update-button {
+    margin-top: 50px;
+    margin-left: 673px;
+}

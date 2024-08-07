@@ -1,0 +1,1 @@
+SELECT * FROM RESULTS where results= /* results */''
